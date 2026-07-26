@@ -163,10 +163,10 @@ section{padding:3.6rem 0}
 .panel-soon h3{color:var(--muted)}
 
 /* аккордеон */
-.more-btn{background:none;border:none;padding:0;font-family:inherit;font-size:0.85rem;color:var(--amber);cursor:pointer;display:inline-flex;align-items:center;gap:0.45rem}
+.more-btn{background:none;border:none;padding:0.7rem 1.4rem 1.1rem;margin:0 -1.4rem -1.1rem;font-family:inherit;font-size:0.85rem;color:var(--amber);cursor:pointer;display:inline-flex;align-items:center;gap:0.45rem}
+.more-btn:hover{color:var(--amber-bright)}
 .more-btn .chev{display:inline-block;transition:transform .2s;line-height:1}
 .more-btn .chev svg{display:block;width:13px;height:13px}
-.more-btn:hover{color:var(--amber-bright)}
 .more-btn.open .chev{transform:rotate(180deg)}
 .more-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .25s ease}
 .more-body.open{max-height:240px;opacity:1}
@@ -836,17 +836,5 @@ langBtn.addEventListener('click',()=>{
 });
 if(lang!=='ru')applyLang();else startTyping();
 </script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111046300', 'ym');
-    ym(111046300, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111046300" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </body>
 </html>
