@@ -74,22 +74,18 @@ a{color:inherit}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:100;background:rgba(12,13,16,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
-.logo{font-family:'Unbounded',sans-serif;font-size:0.85rem;font-weight:600;text-decoration:none;letter-spacing:0.04em;color:var(--amber)}
-.nav-links{display:flex;gap:1.7rem;list-style:none}
-.nav-links a{text-decoration:none;font-size:0.86rem;color:var(--muted);padding-bottom:2px;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
-.nav-links a:hover{color:var(--ink);border-color:var(--amber)}
-.header-right{display:flex;align-items:center;gap:1rem;position:relative}
-.otw-wrap{position:relative}
-.otw-badge{display:flex;align-items:center;gap:0.5rem;font-family:'JetBrains Mono',monospace;font-size:0.73rem;color:var(--green);cursor:pointer;background:transparent;border:1px solid var(--line);border-radius:999px;padding:0.35rem 0.9rem;transition:border-color .15s,background .15s}
-.otw-badge:hover{border-color:var(--green);background:rgba(126,231,135,0.06)}
-.otw-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px rgba(126,231,135,0.7);flex-shrink:0}
-.otw-tooltip{position:absolute;top:calc(100% + 10px);right:0;background:var(--surface2);border:1px solid var(--line-strong);border-radius:var(--radius);padding:0.9rem 1.1rem;min-width:260px;opacity:0;pointer-events:none;transform:translateY(-4px);transition:opacity .18s,transform .18s;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,0.5)}
-.otw-tooltip.open{opacity:1;pointer-events:auto;transform:translateY(0)}
-.otw-tooltip-title{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--faint);margin-bottom:0.5rem}
-.otw-contact{display:flex;align-items:center;gap:0.6rem;text-decoration:none;font-size:0.86rem;color:var(--ink);padding:0.42rem 0;transition:color .15s}
-.otw-contact:hover{color:var(--amber)}
-.otw-contact svg{width:16px;height:16px;color:var(--amber);flex-shrink:0}
-.otw-contact + .otw-contact{border-top:1px solid var(--line)}
+.logo{font-family:'Unbounded',sans-serif;font-size:0.9rem;font-weight:600;text-decoration:none;letter-spacing:0.02em;color:var(--ink);display:inline-flex;align-items:baseline}
+.logo-slash{color:var(--amber);margin:0 1px}
+.logo-sub{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:400;color:var(--faint);letter-spacing:0}
+/* меню-навигация: текст с подсветкой активного */
+.legend-nav{display:flex;align-items:center;gap:1.6rem}
+.leg-item{text-decoration:none;font-size:0.84rem;color:var(--muted);opacity:0.65;transition:opacity .18s,color .18s}
+.leg-item:hover{opacity:1;color:var(--ink)}
+.leg-item.active{opacity:1;color:var(--amber)}
+.header-right{display:flex;align-items:center;gap:0.7rem;position:relative}
+.cv-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--amber);text-decoration:none;border:1px solid var(--amber-line);border-radius:6px;padding:0.32rem 0.7rem;transition:background .15s,border-color .15s}
+.cv-btn svg{width:14px;height:14px}
+.cv-btn:hover{background:var(--amber-soft);border-color:var(--amber)}
 .lang-btn{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--muted);background:transparent;border:1px solid var(--line);padding:0.3rem 0.6rem;border-radius:6px;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
 .lang-btn:hover{color:var(--amber);border-color:var(--amber-line);background:var(--amber-soft)}
 
@@ -128,7 +124,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(12,13,16,0.85);backdrop
 .dot.active{background:var(--amber)}
 
 /* ---------- секции ---------- */
-section{padding:3.6rem 0}
+section{padding:3.6rem 0;scroll-margin-top:76px}
 .section-head{display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem;padding-bottom:0.9rem;border-bottom:1px solid var(--line)}
 .section-head .mark{width:11px;height:11px;border-radius:2px;flex-shrink:0}
 .section-head h2{font-family:'Unbounded',sans-serif;font-size:1.15rem;font-weight:500;letter-spacing:0.01em}
@@ -241,12 +237,11 @@ footer{border-top:1px solid var(--line);margin-top:2rem}
 @media(max-width:760px){
   .wrap{padding:0 20px}
   .header-inner{height:56px}
-  .nav-links{display:none}
+  .legend-nav{display:none}
+  .cv-btn span{display:none}
+  .cv-btn{padding:0.4rem}
   .burger{display:flex}
   .mobile-nav{display:block}
-  .otw-badge span{display:none}
-  .otw-badge{padding:0.42rem}
-  .otw-tooltip{right:-52px}
   .hero{padding:2.6rem 0 3rem}
   .hero-inner{grid-template-columns:1fr;gap:2rem}
   .hero-slider{order:-1;width:180px;margin:0 auto}
@@ -280,31 +275,17 @@ footer{border-top:1px solid var(--line);margin-top:2rem}
 
 <header>
   <div class="wrap header-inner">
-    <a href="#" class="logo">GB</a>
-    <ul class="nav-links">
-      <li><a href="#experience" data-ru="Опыт" data-en="Experience">Опыт</a></li>
-      <li><a href="#champs" data-ru="Хакатоны" data-en="Hackathons">Хакатоны</a></li>
-      <li><a href="#projects" data-ru="Проекты" data-en="Projects">Проекты</a></li>
-      <li><a href="#education" data-ru="Образование" data-en="Education">Образование</a></li>
-      <li><a href="#skills" data-ru="Стек" data-en="Stack">Стек</a></li>
-      <li><a href="#contact" data-ru="Контакты" data-en="Contacts">Контакты</a></li>
-    </ul>
+    <a href="#" class="logo">GB<span class="logo-slash">/</span><span class="logo-sub">data</span></a>
+    <nav class="legend-nav" aria-label="Разделы">
+      <a href="#experience" class="leg-item" data-ru="Опыт" data-en="Experience">Опыт</a>
+      <a href="#champs" class="leg-item" data-ru="Хакатоны" data-en="Hackathons">Хакатоны</a>
+      <a href="#projects" class="leg-item" data-ru="Проекты" data-en="Projects">Проекты</a>
+      <a href="#education" class="leg-item" data-ru="Учёба" data-en="Edu">Учёба</a>
+      <a href="#skills" class="leg-item" data-ru="Стек" data-en="Stack">Стек</a>
+      <a href="#contact" class="leg-item" data-ru="Контакты" data-en="Contacts">Контакты</a>
+    </nav>
     <div class="header-right">
-      <div class="otw-wrap">
-        <button class="otw-badge" id="otwBtn" aria-expanded="false">
-          <span class="otw-dot" aria-hidden="true"></span>
-          <span data-ru="Открыт к предложениям" data-en="Open to offers">Открыт к предложениям</span>
-        </button>
-        <div class="otw-tooltip" id="otwTooltip">
-          <div class="otw-tooltip-title" data-ru="Связаться" data-en="Get in touch">Связаться</div>
-          <a href="mailto:grisha.bondarenko76@gmail.com" class="otw-contact">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>grisha.bondarenko76@gmail.com
-          </a>
-          <a href="https://t.me/Bondarenko_Gregory" class="otw-contact" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 3.5 2.8 10.8c-.9.35-.85 1.6.07 1.88l4.63 1.4 1.8 5.6c.28.86 1.4 1 1.9.25l2.4-3.55 4.7 3.45c.7.5 1.7.13 1.87-.72L22 4.6c.2-.9-.68-1.55-1.5-1.1Z"/><path d="m7.5 14 12-9.5"/></svg>@Bondarenko_Gregory
-          </a>
-        </div>
-      </div>
+      <a href="cv.pdf" download class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg><span data-ru="Резюме" data-en="CV">Резюме</span></a>
       <button class="lang-btn" id="langToggle" aria-label="Switch language">EN</button>
       <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
     </div>
@@ -729,17 +710,6 @@ document.querySelectorAll('.more-btn').forEach(btn=>{
   });
 });
 
-/* ---------- статус ---------- */
-const otwBtn=document.getElementById('otwBtn'),otwTip=document.getElementById('otwTooltip');
-otwBtn.addEventListener('click',e=>{
-  e.stopPropagation();
-  const open=otwTip.classList.toggle('open');
-  otwBtn.setAttribute('aria-expanded',open);
-});
-document.addEventListener('click',e=>{
-  if(!otwTip.contains(e.target)){otwTip.classList.remove('open');otwBtn.setAttribute('aria-expanded','false');}
-});
-
 /* ---------- бургер ---------- */
 const burgerBtn=document.getElementById('burgerBtn'),mobileNav=document.getElementById('mobileNav');
 burgerBtn.addEventListener('click',e=>{
@@ -757,7 +727,23 @@ document.addEventListener('click',e=>{
   }
 });
 
-/* ---------- печатающиеся сферы ---------- */
+/* ---------- меню-легенда: подсветка активной секции ---------- */
+const dotLinks=[...document.querySelectorAll('.leg-item')];
+const dotSections=dotLinks.map(a=>document.querySelector(a.getAttribute('href')));
+function syncDots(){
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  const mid=window.scrollY+window.innerHeight*0.5;
+  let idx=0;
+  dotSections.forEach((s,i)=>{if(s&&s.offsetTop<=mid)idx=i;});
+  if(max>0&&(max-window.scrollY)<40)idx=dotLinks.length-1;
+  dotLinks.forEach((a,i)=>a.classList.toggle('active',i===idx));
+}
+window.addEventListener('scroll',syncDots,{passive:true});
+window.addEventListener('load',syncDots);
+window.addEventListener('resize',syncDots,{passive:true});
+syncDots();
+
+
 const roles={
   ru:['Data Analysis','Data Science','Big Data'],
   en:['Data Analysis','Data Science','Big Data']
