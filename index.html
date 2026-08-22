@@ -792,19 +792,20 @@ function startTyping(){
 
 /* ---------- выравнивание панелей по самой большой ---------- */
 function equalizePanels(){
+  const mobile=window.innerWidth<761;
   document.querySelectorAll('.panel-grid').forEach(g=>{
     const panels=[...g.querySelectorAll('.panel')];
-    const inExp=g.closest('#experience')!==null;
-    const descs=inExp?[...g.querySelectorAll('.panel-body > p')]:[];
+    const descs=[...g.querySelectorAll('.panel-body > p')];
     [...panels,...descs].forEach(el=>{el.style.minHeight='';});
-    if(window.innerWidth<761)return;
     const fit=els=>{
       if(els.length<2)return;
       let m=0;els.forEach(el=>{m=Math.max(m,el.offsetHeight);});
       els.forEach(el=>{el.style.minHeight=m+'px';});
     };
+    /* описания ровняем везде — низ карточек совпадает по структуре */
     fit(descs);
-    fit(panels);
+    /* полную высоту панелей ровняем только на десктопе: в одной колонке это дало бы пустоту */
+    if(!mobile)fit(panels);
   });
 }
 window.addEventListener('load',equalizePanels);
