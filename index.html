@@ -165,8 +165,9 @@ section{padding:3.6rem 0;scroll-margin-top:76px}
 .more-btn .chev svg{display:block;width:13px;height:13px}
 .more-btn.open .chev{transform:rotate(180deg)}
 .more-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .25s ease}
-.more-body.open{max-height:240px;opacity:1}
-.more-body p{padding:0.6rem 0 0.2rem;border-top:1px dashed var(--line);margin-top:0.7rem}
+.more-body.open{max-height:520px;opacity:1}
+.more-body p{padding:0.6rem 0 0.2rem;border-top:1px dashed var(--line);margin-top:0.7rem;line-height:1.6}
+.more-body b{color:var(--amber);font-weight:500}
 
 /* сертификаты */
 .cert-btn{display:inline-block;background:none;border:none;padding:0 0 1px;margin:0;font-family:inherit;font-size:0.86rem;line-height:inherit;color:var(--amber);cursor:pointer;border-bottom:1px dashed var(--amber-line);transition:color .15s,border-color .15s,border-bottom-style .15s;text-align:left;vertical-align:baseline}
@@ -387,7 +388,7 @@ body>header,body>main,body>footer,body>nav{position:relative;z-index:1}
           <p data-ru="ML-команда DSP MTS Web Services" data-en="ML team, DSP at MTS Web Services">ML-команда DSP MTS Web Services</p>
           <div class="stack-line">Python, PySpark, SQL, A/B</div>
           <div class="more-body" id="more-mts">
-            <p data-ru="Обработка и аналитика рекламных данных в направлениях Media, Performance и Antifraud. Проработка гипотез и внедрение новых правил в ML-модели для улучшения основных метрик продукта" data-en="Processing and analytics of advertising data across Media, Performance and Antifraud. Developing hypotheses and rolling out new rules into ML models to improve key product metrics">Обработка и аналитика рекламных данных в направлениях Media, Performance и Antifraud. Проработка гипотез и внедрение новых правил в ML-модели для улучшения основных метрик продукта</p>
+            <p data-ru="<b>Antifraud:</b> проверка гипотез и вывод правил на регламент по итогам A/B-тестов, снижение доли GIVT и SIVT в трафике примерно на 1,5%<br><br><b>Media:</b> аналитика результатов A/B-тестов после внедрения калибровок в CPC и CPM модели, рост выкупа трафика моделью<br><br><b>Performance:</b> feature engineering для CPA-модели, расчёт бенчмарок для нормализации CTR и VTR, исследование постклик-воронки" data-en="<b>Antifraud:</b> hypothesis testing and rolling out rules into production after A/B tests, reducing GIVT and SIVT share in traffic by about 1.5%<br><br><b>Media:</b> analysis of A/B test results after deploying calibrations into CPC and CPM models, improved win rate<br><br><b>Performance:</b> feature engineering for the CPA model, benchmark calculation for CTR and VTR normalization, post-click funnel research"><b>Antifraud:</b> проверка гипотез и вывод правил на регламент по итогам A/B-тестов, снижение доли GIVT и SIVT в трафике примерно на 1,5%<br><br><b>Media:</b> аналитика результатов A/B-тестов после внедрения калибровок в CPC и CPM модели, рост выкупа трафика моделью<br><br><b>Performance:</b> feature engineering для CPA-модели, расчёт бенчмарок для нормализации CTR и VTR, исследование постклик-воронки</p>
           </div>
           <div class="panel-foot">
             <button class="more-btn" data-target="more-mts"><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span><span data-ru="Подробнее" data-en="Details">Подробнее</span></button>
