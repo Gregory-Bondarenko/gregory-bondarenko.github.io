@@ -216,11 +216,13 @@ footer{border-top:1px solid var(--line);margin-top:2rem}
 }
 
 /* модалка */
-.modal-overlay{position:fixed;inset:0;background:rgba(5,6,8,0.82);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;padding:24px}
-.modal-overlay.open{opacity:1;pointer-events:auto}
-.modal-box{position:relative;max-width:min(920px,92vw);max-height:88vh;background:var(--surface2);border:1px solid var(--line-strong);border-radius:var(--radius);padding:10px;box-shadow:0 24px 60px rgba(0,0,0,0.6)}
+.modal-overlay{position:fixed;inset:0;background:rgba(5,6,8,0.82);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.22,.61,.36,1);padding:24px;backdrop-filter:blur(0px)}
+.modal-overlay.open{opacity:1;pointer-events:auto;backdrop-filter:blur(3px)}
+.modal-box{position:relative;max-width:min(920px,92vw);max-height:88vh;background:var(--surface2);border:1px solid var(--line-strong);border-radius:var(--radius);padding:10px;box-shadow:0 24px 60px rgba(0,0,0,0.6);opacity:0;transform:scale(0.94) translateY(14px);transition:opacity .3s cubic-bezier(.22,.61,.36,1),transform .38s cubic-bezier(.16,.84,.44,1)}
+.modal-overlay.open .modal-box{opacity:1;transform:scale(1) translateY(0)}
+.modal-overlay.open .modal-close{opacity:1}
 .modal-box img{display:block;max-width:100%;max-height:calc(88vh - 20px);object-fit:contain;border-radius:6px}
-.modal-close{position:absolute;top:-2.4rem;right:0;background:transparent;border:none;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;padding:0.3rem 0}
+.modal-close{opacity:0;transition:opacity .25s ease .12s,color .15s;position:absolute;top:-2.4rem;right:0;background:transparent;border:none;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;padding:0.3rem 0}
 .modal-close:hover{color:var(--amber)}
 
 /* ---------- бургер и мобильное меню ---------- */
@@ -291,12 +293,18 @@ body>header,body>main,body>footer,body>nav{position:relative;z-index:1}
 }
 
 /* плавное появление сертификата и индикатор загрузки */
-#modalImg{opacity:0;transition:opacity .18s ease}
-#modalImg.ready{opacity:1}
+#modalImg{opacity:0;transform:scale(0.98);transition:opacity .28s ease,transform .35s cubic-bezier(.16,.84,.44,1)}
+#modalImg.ready{opacity:1;transform:scale(1)}
 .modal-box{min-width:220px;min-height:140px}
 .modal-overlay.loading .modal-box::after{content:'';position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid var(--line-strong);border-top-color:var(--amber);border-radius:50%;animation:certSpin .7s linear infinite}
 @keyframes certSpin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.modal-overlay.loading .modal-box::after{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  .modal-box{transition:none;transform:none;opacity:1}
+  .modal-overlay.open .modal-box{transform:none}
+  #modalImg{transition:none;transform:none}
+  .modal-overlay{backdrop-filter:none!important}
+}
 </style>
 </head>
 <body>
