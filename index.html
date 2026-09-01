@@ -289,6 +289,14 @@ body>header,body>main,body>footer,body>nav{position:relative;z-index:1}
   .cb-line{stroke-dashoffset:0!important}
   .cb-dots circle{opacity:0.26!important;transform:none!important}
 }
+
+/* плавное появление сертификата и индикатор загрузки */
+#modalImg{opacity:0;transition:opacity .18s ease}
+#modalImg.ready{opacity:1}
+.modal-box{min-width:220px;min-height:140px}
+.modal-overlay.loading .modal-box::after{content:'';position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid var(--line-strong);border-top-color:var(--amber);border-radius:50%;animation:certSpin .7s linear infinite}
+@keyframes certSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.modal-overlay.loading .modal-box::after{animation:none}}
 </style>
 </head>
 <body>
@@ -726,14 +734,37 @@ const certImgs={
   'mlspec':'img/cert-mlspec.jpg'
 };
 const certModal=document.getElementById('certModal');
+const modalImg=document.getElementById('modalImg');
+let certToken=0;
 function openCert(key){
-  document.getElementById('modalImg').src=certImgs[key];
+  const src=certImgs[key];
+  if(!src)return;
+  const my=++certToken;              /* защита от гонки при быстрых кликах */
   certModal.classList.add('open');
   certModal.setAttribute('aria-hidden','false');
+  certModal.classList.add('loading');
   document.body.style.overflow='hidden';
+  /* прячем предыдущую картинку, пока новая не готова */
+  modalImg.classList.remove('ready');
+  const pre=new Image();
+  pre.onload=()=>{
+    if(my!==certToken)return;        /* пользователь успел кликнуть другой */
+    modalImg.src=src;
+    modalImg.classList.add('ready');
+    certModal.classList.remove('loading');
+  };
+  pre.onerror=()=>{
+    if(my!==certToken)return;
+    certModal.classList.remove('loading');
+  };
+  pre.src=src;
+  /* если картинка уже в кеше — покажется мгновенно */
+  if(pre.complete){pre.onload();}
 }
 function closeCert(){
+  certToken++;
   certModal.classList.remove('open');
+  certModal.classList.remove('loading');
   certModal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
 }
@@ -923,6 +954,13 @@ if(lang!=='ru')applyLang();else startTyping();
   window.addEventListener('resize',kick,{passive:true});
   calcTarget(); cur=target; render();
 })();
+
+/* фоновая предзагрузка сертификатов — чтобы открывались мгновенно */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    Object.values(certImgs).forEach(src=>{const i=new Image(); i.src=src;});
+  },1200);
+});
 </script>
 </body>
 </html>
