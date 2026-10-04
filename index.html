@@ -110,12 +110,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,8,10,0.88);backdrop-f
 .slider-wrap{position:relative;width:300px;height:380px;border-radius:2px;overflow:hidden;border:none;cursor:pointer}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
 .slide.active{opacity:1}
-.slide img{width:100%;height:100%;object-fit:cover;display:block;
-  filter:grayscale(1) contrast(1.32) brightness(0.78)}
-.slider-wrap::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
-  background:var(--amber);mix-blend-mode:color;opacity:0.2}
-.slider-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:3;
-  background:linear-gradient(to top,rgba(7,8,10,0.5),rgba(7,8,10,0) 48%)}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
 .slider-controls{display:flex;align-items:center;justify-content:center;margin-top:0.8rem}
 .slider-dots{display:flex;gap:0.6rem}
 .dot{width:22px;height:4px;border-radius:2px;background:var(--line-strong);transition:background .2s;cursor:pointer;border:none;padding:0}
