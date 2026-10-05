@@ -226,7 +226,7 @@ footer .footer-cta{display:flex;align-items:center;justify-content:space-between
   .section-head{margin-bottom:1.4rem}
   .section-head h2{font-size:1.02rem}
   .panel-top{padding:0 0 0.7rem}
-  .panel-body{padding:0.95rem 1rem 1.1rem}
+  .panel-body{padding:0}
   .skills-grid{grid-template-columns:1fr;gap:1.6rem}
   .contact-list{grid-template-columns:1fr}
   .contact-item{padding:0.9rem 1rem}
@@ -861,8 +861,7 @@ function equalizePanels(){
       let m=0;els.forEach(el=>{m=Math.max(m,el.offsetHeight);});
       els.forEach(el=>{el.style.minHeight=m+'px';});
     };
-    fit(descs);
-    if(!mobile)fit(panels);
+    if(!mobile){fit(descs);fit(panels);}
   });
 }
 window.addEventListener('load',equalizePanels);

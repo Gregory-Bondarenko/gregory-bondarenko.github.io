@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Страница не найдена — Григорий Бондаренко</title>
+<title>Страница не найдена | Григорий Бондаренко</title>
 <meta name="robots" content="noindex"/>
 <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400&family=Golos+Text:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#07080a;--ink:#eae8e1;--muted:#8a909c;--line:#1b1e24;--amber:#ffb000}
+:root{--bg:#07080a;--ink:#eae8e1;--muted:#8a909c;--faint:#565c68;--line:#2a2e36;--amber:#ffb000}
 html,body{height:100%}
 body{background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sans-serif;
   display:flex;align-items:center;justify-content:center;padding:24px;overflow-x:hidden}
@@ -19,36 +19,94 @@ body{background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sa
 .grain{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:0.045;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:160px 160px}
-.chart{position:fixed;left:0;top:0;width:100vw;height:100%;z-index:0;pointer-events:none;opacity:0.55}
 .wrap{position:relative;z-index:1;max-width:620px;width:100%}
-.code{font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--amber);letter-spacing:-0.02em;margin-bottom:1.4rem}
-h1{font-family:'Spectral',Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:400;
-  line-height:1.08;letter-spacing:-0.015em;margin-bottom:1.1rem;text-wrap:balance}
-p{color:var(--muted);font-size:1.02rem;line-height:1.65;max-width:46ch;margin-bottom:2.2rem}
+.pc{width:min(300px,78vw);height:auto;display:block;margin-bottom:2rem;overflow:visible}
+.halo{animation:halo 4s ease-in-out infinite}
+@keyframes halo{0%,100%{opacity:.7}50%{opacity:1}}
+.pulse{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.04}50%{opacity:.1}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4.6s ease-in-out infinite}
+@keyframes blink{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.08)}}
+.tear{transform-box:fill-box;transform-origin:center top;animation:tear 3.6s cubic-bezier(.5,0,.7,1) infinite;opacity:0}
+@keyframes tear{0%{opacity:0;transform:translateY(-2px) scale(.6)}18%{opacity:1;transform:translateY(0) scale(1)}75%{opacity:1;transform:translateY(16px) scale(1)}100%{opacity:0;transform:translateY(22px) scale(.8)}}
+.spark circle{transform-box:fill-box;transform-origin:center;animation:spark 2.8s ease-out infinite;opacity:0}
+.spark circle:nth-child(2){animation-delay:.12s}.spark circle:nth-child(3){animation-delay:.24s}
+@keyframes spark{0%,80%{opacity:0;transform:scale(.3)}86%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:scale(.6) translateX(4px)}}
+.code{font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--amber);letter-spacing:-0.02em;margin-bottom:0.9rem}
+h1{font-family:'Spectral',Georgia,serif;font-size:clamp(2.1rem,5.4vw,3.4rem);font-weight:400;
+  line-height:1.06;letter-spacing:-0.015em;margin-bottom:1rem;text-wrap:balance}
+p.lead{color:var(--muted);font-size:1.02rem;line-height:1.65;max-width:44ch;margin-bottom:2.2rem}
 a.back{display:inline-block;background:var(--amber);color:var(--bg);text-decoration:none;
-  font-size:0.92rem;font-weight:500;padding:0.75rem 1.5rem;border-radius:7px;
+  font-size:0.92rem;font-weight:500;padding:0.78rem 1.55rem;border-radius:7px;
   transition:background .15s,transform .08s}
 a.back:hover{background:#ffc233}
 a.back:active{transform:scale(0.97)}
 :focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:3px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.halo,.pulse,.eye,.tear,.spark circle{animation:none}.tear{opacity:.85}}
 </style>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<svg class="chart" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  <polyline points="90,980 230,940 370,905 510,860 650,805 790,760 930,690 1070,640 1210,560 1350,520 1490,440"
-    fill="none" stroke="#ffb000" stroke-opacity="0.14" stroke-width="2.4" stroke-linejoin="round"/>
-  <g fill="#ffb000" opacity="0.2">
-    <circle cx="230" cy="952" r="3"/><circle cx="370" cy="890" r="3"/><circle cx="510" cy="874" r="3"/>
-    <circle cx="650" cy="792" r="3"/><circle cx="790" cy="776" r="3"/><circle cx="930" cy="672" r="3"/>
-    <circle cx="1070" cy="658" r="3"/><circle cx="1210" cy="546" r="3"/><circle cx="1350" cy="538" r="3"/>
-  </g>
-</svg>
 <main class="wrap">
-  <div class="code">404 / page not found</div>
+  <svg class="pc" viewBox="0 0 300 230" role="img" aria-label="Грустный монитор с выдернутым кабелем">
+    <defs>
+      <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2a2f39"/><stop offset="1" stop-color="#14171c"/>
+      </linearGradient>
+      <linearGradient id="stand" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#22262e"/><stop offset="1" stop-color="#121418"/>
+      </linearGradient>
+      <radialGradient id="screen" cx="0.5" cy="0.42" r="0.75">
+        <stop offset="0" stop-color="#3a2a08"/><stop offset="0.55" stop-color="#1d1606"/><stop offset="1" stop-color="#0b0a07"/>
+      </radialGradient>
+      <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#ffb000" stop-opacity="0.22"/><stop offset="1" stop-color="#ffb000" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="cable" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#3a3f4a"/><stop offset="1" stop-color="#23272f"/>
+      </linearGradient>
+      <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+    </defs>
+
+    <ellipse class="shadow" cx="112" cy="212" rx="78" ry="9" fill="#000" opacity="0.55" filter="url(#soft)"/>
+    <ellipse class="halo" cx="112" cy="78" rx="120" ry="90" fill="url(#halo)"/>
+
+    <path d="M190 118 C 246 120, 250 168, 232 188 C 222 200, 240 210, 262 202" fill="none" stroke="url(#cable)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M212 120 C 246 124, 250 168, 232 188" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2" stroke-linecap="round"/>
+
+    <g class="sway">
+      <rect x="100" y="154" width="24" height="32" fill="url(#stand)"/>
+      <rect x="66" y="186" width="92" height="10" rx="3" fill="url(#stand)"/>
+      <rect x="68" y="186" width="88" height="1.5" rx="0.75" fill="#ffffff" opacity="0.08"/>
+
+      <rect x="14" y="8" width="196" height="146" rx="14" fill="url(#body)"/>
+      <rect x="22" y="11" width="180" height="2" rx="1" fill="#ffffff" opacity="0.08"/>
+      <rect x="24" y="18" width="176" height="118" rx="6" fill="url(#screen)"/>
+      <rect class="pulse" x="24" y="18" width="176" height="118" rx="6" fill="#ffb000" opacity="0.06"/>
+      <path d="M24 24 L60 24 L32 70 L24 70 Z" fill="#ffffff" opacity="0.025"/>
+
+      <g class="face">
+        <path d="M72 66 Q82 61 92 63" stroke="#ffb000" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M152 66 Q142 61 132 63" stroke="#ffb000" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <g class="eye"><ellipse cx="84" cy="82" rx="6.5" ry="8" fill="#ffb000"/><circle cx="86.5" cy="79" r="1.8" fill="#fff6dd" opacity="0.85"/></g>
+        <g class="eye"><ellipse cx="140" cy="82" rx="6.5" ry="8" fill="#ffb000"/><circle cx="142.5" cy="79" r="1.8" fill="#fff6dd" opacity="0.85"/></g>
+        <path d="M98 112 Q112 103 126 112" stroke="#ffb000" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path class="tear" d="M146 92 C 149.5 98, 150 102, 146 103.5 C 142 102, 142.5 98, 146 92 Z" fill="#8fd0ff"/>
+      </g>
+      <circle cx="198" cy="145" r="2" fill="#ffb000" opacity="0.55"/>
+    </g>
+
+    <rect x="258" y="192" width="22" height="20" rx="6" fill="url(#stand)"/>
+    <rect x="261" y="194" width="16" height="3" rx="1.5" fill="#ffffff" opacity="0.08"/>
+    <rect x="279" y="196" width="10" height="4" rx="2" fill="#5a606c"/>
+    <rect x="279" y="204" width="10" height="4" rx="2" fill="#5a606c"/>
+    <g class="spark" fill="#ffc94d">
+      <circle cx="295" cy="190" r="2.2"/><circle cx="298" cy="202" r="1.8"/><circle cx="294" cy="214" r="2"/>
+    </g>
+  </svg>
+  <div class="code">error 404</div>
   <h1>Такой страницы нет</h1>
-  <p>Либо адрес набран с ошибкой, либо страница переехала. Всё содержимое сайта находится на главной.</p>
+  <p class="lead">Возможно, адрес набран с ошибкой или страница переехала. Всё содержимое сайта на главной</p>
   <a href="/" class="back">На главную</a>
 </main>
 </body>
