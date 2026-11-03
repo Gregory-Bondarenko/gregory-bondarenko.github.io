@@ -283,6 +283,25 @@ section{padding:3.4rem 0 4.2rem}
 .skip{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--amber);color:#07080a;
   padding:0.7rem 1.2rem;border-radius:0 0 6px 0;font-size:0.9rem;text-decoration:none}
 .skip:focus{left:0}
+.cert-row .badge{display:inline-block;margin-left:0.6rem;padding:0.1rem 0.45rem;font-family:'JetBrains Mono',monospace;font-size:0.66rem;font-weight:400;letter-spacing:0.04em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-line);border-radius:3px;vertical-align:2px}
+.cert-row.featured{border-bottom-color:var(--amber-line)}
+.cert-row.featured .name{color:var(--amber)}
+.cert-row .badge.muted{color:var(--muted);border-color:var(--line-strong)}
+a.cert-row{color:inherit;text-decoration:none}
+.pubs .cert-list{grid-template-columns:1fr}
+.pubs .cert-row .name{max-width:72ch}
+.link-modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(7,8,10,0.55);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility 0s linear .2s}
+.link-modal.open{opacity:1;visibility:visible;transition:opacity .2s ease}
+.link-box{width:100%;max-width:400px;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);padding:1.4rem 1.5rem 1.2rem;transform:translateY(6px);transition:transform .2s ease}
+.link-modal.open .link-box{transform:none}
+.link-box .lm-title{font-size:0.98rem;font-weight:500;margin-bottom:0.5rem}
+.link-box .lm-url{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--muted);word-break:break-all;margin-bottom:1.3rem}
+.link-box .lm-actions{display:flex;justify-content:flex-end;align-items:center;gap:1.2rem}
+.lm-cancel{background:none;border:none;font:inherit;font-size:0.86rem;color:var(--muted);cursor:pointer;padding:0.4rem 0}
+.lm-cancel:hover{color:var(--ink)}
+.lm-go{display:inline-block;background:var(--amber);color:var(--bg);text-decoration:none;font-size:0.86rem;font-weight:500;padding:0.55rem 1.1rem;border-radius:6px;transition:background .15s}
+.lm-go:hover{background:var(--amber-bright)}
+@media (prefers-reduced-motion:reduce){.link-modal,.link-box{transition:none}}
 </style>
 </head>
 <body>
@@ -427,10 +446,10 @@ section{padding:3.4rem 0 4.2rem}
         </div>
         <div class="panel-body">
           <h3 data-ru="Кейс-Лаб ИТ КоР, <span class='org'>Росатом</span>" data-en="Case Lab IT KoR, <span class='org'>Rosatom</span>">Кейс-Лаб ИТ КоР, <span class="org">Росатом</span></h3>
-          <p data-ru="Кейс-лаборатория по направлению ML" data-en="Case laboratory in ML">Кейс-лаборатория по направлению ML</p>
+          <p data-ru="Практические кейсы по созданию и обучению ML-моделей на PyTorch. Подготовка данных, ускорение вычислений, малоранговые методы и свёрточные сети для задач компьютерного зрения" data-en="Hands-on cases on building and training ML models in PyTorch. Data preparation, speeding up computation, low-rank methods and convolutional networks for computer vision tasks">Практические кейсы по созданию и обучению ML-моделей на PyTorch. Подготовка данных, ускорение вычислений, малоранговые методы и свёрточные сети для задач компьютерного зрения</p>
           <div class="panel-bottom">
-            <div class="panel-foot">
-              <span class="in-progress" data-ru="В процессе участия" data-en="In progress">В процессе участия</span>
+            <div class="panel-foot foot-row">
+              <button class="cert-btn" onclick="openCert('rosatom')"><span data-ru="Сертификат" data-en="Certificate">Сертификат</span></button>
             </div>
           </div>
         </div>
@@ -461,73 +480,51 @@ section{padding:3.4rem 0 4.2rem}
     <div class="section-head">
       <h2 data-ru="Чемпионаты и хакатоны" data-en="Championships &amp; hackathons">Чемпионаты и хакатоны</h2>
     </div>
-    <div class="panel-grid">
-
-      <article class="panel">
-        <div class="panel-top">
-          <span class="tag" data-ru="Кейс чемпионат" data-en="Case championship">Кейс чемпионат</span>
-          <span class="period">2026</span>
+    <div class="cert-wrap collapsed" id="champWrap">
+      <div class="cert-list">
+        <div class="cert-row featured" onclick="openCert('changellenge')" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name"><span data-ru="Changellenge Cup IT" data-en="Changellenge Cup IT">Changellenge Cup IT</span><span class="badge" data-ru="Финалист" data-en="Finalist">Финалист</span></span>
+            <span class="issuer" data-ru="Финалист трека Data Analysis (P&amp;G, МТС)" data-en="Data Analysis track finalist (P&amp;G, MTS)">Финалист трека Data Analysis (P&amp;G, МТС)</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
         </div>
-        <div class="panel-body">
-          <h3>Changellenge Cup IT</h3>
-          <p data-ru="Финалист трека Data Analysis<br>— кейс P&amp;G: 3 место<br>— кейс МТС: 4–10 место" data-en="Data Analysis track finalist<br>— P&amp;G case: 3rd place<br>— MTS case: top-10 finish">Финалист трека Data Analysis<br>— кейс P&amp;G: 3 место<br>— кейс МТС: 4–10 место</p>
-          <div class="panel-bottom">
-            <div class="panel-foot foot-row">
-              <button class="cert-btn" onclick="openCert('changellenge')"><span data-ru="Диплом финалиста" data-en="Finalist diploma">Диплом финалиста</span></button>
-              <a href="https://github.com/Gregory-Bondarenko/changellenge-cup_it-mts" class="row-link" target="_blank" rel="noopener noreferrer" data-ru="Кейс на GitHub" data-en="Case on GitHub">Кейс на GitHub</a>
-            </div>
-          </div>
+        <div class="cert-row" onclick="openCert('kvant')" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name"><span data-ru="Хакни Квант" data-en="Hackni Quant">Хакни Квант</span></span>
+            <span class="issuer" data-ru="Росатом &amp; МФТИ, квантовые вычисления" data-en="Rosatom &amp; MIPT, quantum computing">Росатом &amp; МФТИ, квантовые вычисления</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
         </div>
-      </article>
-      <article class="panel">
-        <div class="panel-top">
-          <span class="tag" data-ru="Хакатон" data-en="Hackathon">Хакатон</span>
-          <span class="period">2026</span>
+        <div class="cert-row" onclick="openCert('neftekod')" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name"><span data-ru="Нефтекод" data-en="Neftecode">Нефтекод</span></span>
+            <span class="issuer" data-ru="ИТМО &amp; Газпром нефть, мультиагентные системы" data-en="ITMO &amp; Gazprom Neft, multi-agent systems">ИТМО &amp; Газпром нефть, мультиагентные системы</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
         </div>
-        <div class="panel-body">
-          <h3 data-ru="Градиент роста" data-en="Gradient of Growth">Градиент роста</h3>
-          <p data-ru="Участник соревнования по ML от ФКН НИУ ВШЭ и X5 Tech" data-en="Participant in the ML competition by HSE FCS and X5 Tech">Участник соревнования по ML от ФКН НИУ ВШЭ и X5 Tech</p>
-          <div class="panel-bottom">
-            <div class="panel-foot">
-              <button class="cert-btn" onclick="openCert('gradient')"><span data-ru="Сертификат участника" data-en="Participant certificate">Сертификат участника</span></button>
-            </div>
-          </div>
+        <div class="cert-row" onclick="openCert('alfa')" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name"><span data-ru="Альфа-Будущее" data-en="Alfa Future">Альфа-Будущее</span></span>
+            <span class="issuer" data-ru="Альфа-Банк, продуктовый кейс-чемпионат" data-en="Alfa-Bank, product case championship">Альфа-Банк, продуктовый кейс-чемпионат</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
         </div>
-      </article>
-
-      <article class="panel">
-        <div class="panel-top">
-          <span class="tag" data-ru="Кейс чемпионат" data-en="Case championship">Кейс чемпионат</span>
-          <span class="period">2026</span>
+        <div class="cert-row" onclick="openCert('gradient')" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name"><span data-ru="Градиент роста" data-en="Gradient of Growth">Градиент роста</span></span>
+            <span class="issuer" data-ru="ФКН НИУ ВШЭ &amp; X5 Tech, машинное обучение" data-en="HSE FCS &amp; X5 Tech, machine learning">ФКН НИУ ВШЭ &amp; X5 Tech, машинное обучение</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
         </div>
-        <div class="panel-body">
-          <h3 data-ru="Альфа-Будущее" data-en="Alfa Future">Альфа-Будущее</h3>
-          <p data-ru="Участник продуктового кейс-чемпионата от Альфа-Банка" data-en="Participant in Alfa-Bank's product case championship">Участник продуктового кейс-чемпионата от Альфа-Банка</p>
-          <div class="panel-bottom">
-            <div class="panel-foot">
-              <button class="cert-btn" onclick="openCert('alfa')"><span data-ru="Диплом участника" data-en="Participant diploma">Диплом участника</span></button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-<article class="panel">
-        <div class="panel-top">
-          <span class="tag" data-ru="Хакатон" data-en="Hackathon">Хакатон</span>
-          <span class="period">2026</span>
-        </div>
-        <div class="panel-body">
-          <h3 data-ru="Нефтекод" data-en="Neftecode">Нефтекод</h3>
-          <p data-ru="Участник хакатона по мультиагентным системам от ИТМО и Газпром" data-en="Participant in the multi-agent systems hackathon by ITMO and Gazprom">Участник хакатона по мультиагентным системам от ИТМО и Газпром</p>
-          <div class="panel-bottom">
-            <div class="panel-foot">
-              <span class="in-progress" data-ru="В процессе участия" data-en="In progress">В процессе участия</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
+      </div>
     </div>
+    <button class="cert-more" data-ru="Показать ещё" data-en="Show more">Показать ещё</button>
   </div>
 </section>
 
@@ -548,6 +545,31 @@ section{padding:3.4rem 0 4.2rem}
           <p data-ru="ИЭМИТ, Прикладная информатика — Анализ данных, Data Science" data-en="IEMIT, Applied Informatics — Data Analysis, Data Science">ИЭМИТ, Прикладная информатика — Анализ данных, Data Science</p>
         </div>
       </article>
+    </div>
+
+    <div id="pubsBlock" hidden>
+    <p class="sub-title" data-ru="Публикации" data-en="Publications">Публикации</p>
+    <div class="cert-wrap collapsed pubs">
+      <div class="cert-list">
+        <div class="cert-row pub-row" data-url="https://elibrary.ru/item.asp?id=00000000" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name">Многомасштабный анализ биржевых временных рядов на основе нейросетевых методов обработки данных<span class="badge">ВАК</span></span>
+            <span class="issuer" data-ru="Мягкие измерения и вычисления, т.&nbsp;3, №&nbsp;11" data-en="Soft Measurements and Computing, vol.&nbsp;3, no.&nbsp;11">Мягкие измерения и вычисления, т.&nbsp;3, №&nbsp;11</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
+        </div>
+        <div class="cert-row pub-row" data-url="https://elibrary.ru/item.asp?id=00000000" role="button" tabindex="0">
+          <span class="yr">2026</span>
+          <span class="txt">
+            <span class="name">Моделирование пользовательского поведения в мобильных приложениях средствами машинного обучения<span class="badge">ВАК</span></span>
+            <span class="issuer" data-ru="Мягкие измерения и вычисления, т.&nbsp;3, №&nbsp;10" data-en="Soft Measurements and Computing, vol.&nbsp;3, no.&nbsp;10">Мягкие измерения и вычисления, т.&nbsp;3, №&nbsp;10</span>
+          </span>
+          <span class="view" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+    <button class="cert-more" data-ru="Показать ещё" data-en="Show more">Показать ещё</button>
     </div>
 
     <p class="sub-title" data-ru="Курсы и сертификаты" data-en="Courses &amp; certificates">Курсы и сертификаты</p>
@@ -596,7 +618,7 @@ section{padding:3.4rem 0 4.2rem}
       </div>
     </div>
       </div>
-      <button class="cert-more" id="certMore" data-ru="Показать ещё" data-en="Show more">Показать ещё</button>
+      <button class="cert-more"  data-ru="Показать ещё" data-en="Show more">Показать ещё</button>
   </div>
 </section>
 
@@ -613,6 +635,14 @@ section{padding:3.4rem 0 4.2rem}
         </div>
       </div>
       <div>
+        <div class="skill-group-title" data-ru="LLM и агенты" data-en="LLM &amp; agents">LLM и агенты</div>
+        <div class="pills">
+          <span class="pill">Claude Code</span><span class="pill">Cursor</span><span class="pill">MCP</span>
+          <span class="pill" data-ru="Агенты и субагенты" data-en="Agents &amp; subagents">Агенты и субагенты</span>
+          <span class="pill">Ollama</span><span class="pill">RAG</span>
+        </div>
+      </div>
+      <div>
         <div class="skill-group-title">SQL, PostgreSQL</div>
         <div class="pills">
           <span class="pill" data-ru="Агрегации" data-en="Aggregations">Агрегации</span>
@@ -623,15 +653,9 @@ section{padding:3.4rem 0 4.2rem}
         </div>
       </div>
       <div>
-        <div class="skill-group-title">BI</div>
+        <div class="skill-group-title" data-ru="Big Data и BI" data-en="Big Data &amp; BI">Big Data и BI</div>
         <div class="pills">
-          <span class="pill">Power BI</span><span class="pill">Superset</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-title" data-ru="Хранилища и Big Data" data-en="Storage &amp; Big Data">Хранилища и Big Data</div>
-        <div class="pills">
-          <span class="pill">PySpark</span><span class="pill">Hadoop</span><span class="pill">ClickHouse</span>
+          <span class="pill">PySpark</span><span class="pill">Hadoop</span><span class="pill">ClickHouse</span><span class="pill">Power BI</span><span class="pill">Superset</span>
         </div>
       </div>
       <div>
@@ -640,7 +664,6 @@ section{padding:3.4rem 0 4.2rem}
           <span class="pill" data-ru="Матстат" data-en="Statistics">Матстат</span>
           <span class="pill" data-ru="Тервер" data-en="Probability">Тервер</span>
           <span class="pill" data-ru="A/B-тесты" data-en="A/B tests">A/B-тесты</span>
-          <span class="pill" data-ru="LLM и промты" data-en="LLM &amp; prompts">LLM и промты</span>
           <span class="pill" data-ru="Google Sheets / Excel" data-en="Google Sheets / Excel">Google Sheets / Excel</span>
         </div>
       </div>
@@ -704,7 +727,10 @@ const certImgs={
   'vk':'img/cert-vk.jpg',
   'gradient':'img/cert-gradient.jpg',
   'alfa':'img/cert-alfa.jpg',
-  'mlspec':'img/cert-mlspec.jpg'
+  'mlspec':'img/cert-mlspec.jpg',
+  'rosatom':'img/cert-rosatom.jpg',
+  'kvant':'img/cert-kvant.jpg',
+  'neftekod':'img/cert-neftekod.jpg'
 };
 const certModal=document.getElementById('certModal');
 const modalImg=document.getElementById('modalImg');
@@ -950,49 +976,77 @@ window.addEventListener('load',()=>{
   },1200);
 });
 (function(){
-  const wrap=document.getElementById('certWrap');
-  const btn=document.getElementById('certMore');
-  if(!wrap||!btn)return;
-  const rows=wrap.querySelectorAll('.cert-row');
-  const LIMIT = 4;
-  if(rows.length<=LIMIT){wrap.classList.remove('collapsed');return;}
-  btn.classList.add('show');
-  const list=wrap.querySelector('.cert-list');
-  const COLLAPSED=215;
-  function markPeek(){
-    if(!wrap.classList.contains('collapsed')){
-      rows.forEach(r=>r.classList.remove('peek'));
-      return;
+  const LIMIT=4;
+  document.querySelectorAll('.cert-wrap').forEach(wrap=>{
+    const btn=wrap.nextElementSibling&&wrap.nextElementSibling.classList.contains('cert-more')?wrap.nextElementSibling:null;
+    const list=wrap.querySelector('.cert-list');
+    const rows=[...wrap.querySelectorAll('.cert-row')];
+    if(!btn||!list)return;
+    if(rows.length<=LIMIT){wrap.classList.remove('collapsed');list.style.maxHeight='none';return;}
+    btn.classList.add('show');
+    function collapsedH(){
+      const top=list.getBoundingClientRect().top;
+      const last=rows[LIMIT-1].getBoundingClientRect();
+      return Math.round(last.bottom-top+last.height*0.5);
     }
-    const top=list.getBoundingClientRect().top;
-    rows.forEach(r=>{
-      const rb=r.getBoundingClientRect();
-      r.classList.toggle('peek',(rb.bottom-top)>COLLAPSED-2);
+    function markPeek(){
+      if(!wrap.classList.contains('collapsed')){rows.forEach(r=>r.classList.remove('peek'));return;}
+      const top=list.getBoundingClientRect().top, lim=collapsedH();
+      rows.forEach(r=>r.classList.toggle('peek',(r.getBoundingClientRect().bottom-top)>lim+1));
+    }
+    function setCollapsed(){list.style.maxHeight=collapsedH()+'px';markPeek();}
+    list.style.transition='none';
+    list.style.maxHeight='none';
+    setCollapsed();
+    requestAnimationFrame(()=>{list.style.transition='';});
+    window.addEventListener('resize',()=>{if(wrap.classList.contains('collapsed')){list.style.maxHeight='none';setCollapsed();}},{passive:true});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(wrap.classList.contains('collapsed')){list.style.maxHeight='none';setCollapsed();}});
+    btn.addEventListener('click',()=>{
+      const isOpen=!wrap.classList.contains('collapsed');
+      if(isOpen){
+        list.style.maxHeight=list.scrollHeight+'px';
+        requestAnimationFrame(()=>{wrap.classList.add('collapsed');list.style.maxHeight=collapsedH()+'px';markPeek();});
+        btn.textContent=btn.dataset[lang]||'Показать ещё';
+      }else{
+        wrap.classList.remove('collapsed');
+        list.style.maxHeight=list.scrollHeight+'px';
+        btn.textContent=(lang==='en')?'Show less':'Свернуть';
+        markPeek();
+      }
     });
+    list.addEventListener('transitionend',e=>{
+      if(e.propertyName!=='max-height')return;
+      if(!wrap.classList.contains('collapsed'))list.style.maxHeight='none';
+    });
+  });
+})();
+</script>
+<div class="link-modal" id="linkModal" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+  <div class="link-box">
+    <p class="lm-title" id="lmTitle" data-ru="Открыть статью на eLibrary?" data-en="Open the paper on eLibrary?">Открыть статью на eLibrary?</p>
+    <p class="lm-url" id="lmUrl"></p>
+    <div class="lm-actions">
+      <button class="lm-cancel" id="lmCancel" type="button" data-ru="Отмена" data-en="Cancel">Отмена</button>
+      <a class="lm-go" id="lmGo" href="#" target="_blank" rel="noopener noreferrer" data-ru="Перейти" data-en="Open">Перейти</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const m=document.getElementById('linkModal'),go=document.getElementById('lmGo'),url=document.getElementById('lmUrl'),cancel=document.getElementById('lmCancel');
+  if(!m)return;
+  let last=null;
+  function open(row){
+    const u=row.dataset.url;if(!u)return;
+    last=row;go.href=u;url.textContent=u.replace(/^https?:\/\//,'');
+    m.classList.add('open');setTimeout(()=>go.focus(),50);
   }
-  markPeek();
-  window.addEventListener('resize',markPeek,{passive:true});
-  btn.addEventListener('click',()=>{
-    const isOpen=!wrap.classList.contains('collapsed');
-    if(isOpen){
-      list.style.maxHeight=list.scrollHeight+'px';
-      requestAnimationFrame(()=>{
-        wrap.classList.add('collapsed');
-        list.style.maxHeight=COLLAPSED+'px';
-      });
-      btn.textContent=btn.dataset[lang]||'Показать ещё';
-      setTimeout(markPeek,10);
-    }else{
-      wrap.classList.remove('collapsed');
-      list.style.maxHeight=list.scrollHeight+'px';
-      btn.textContent=(lang==='en')?'Show less':'Свернуть';
-      markPeek();
-    }
-  });
-  list.addEventListener('transitionend',e=>{
-    if(e.propertyName!=='max-height')return;
-    if(!wrap.classList.contains('collapsed'))list.style.maxHeight='none';
-  });
+  function close(){m.classList.remove('open');if(last)last.focus({preventScroll:true});}
+  document.querySelectorAll('.pub-row').forEach(r=>r.addEventListener('click',()=>open(r)));
+  cancel.addEventListener('click',close);
+  go.addEventListener('click',()=>setTimeout(close,100));
+  m.addEventListener('click',e=>{if(e.target===m)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))close();});
 })();
 </script>
 </body>
