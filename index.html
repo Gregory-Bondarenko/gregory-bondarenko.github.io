@@ -35,7 +35,7 @@
   "url": "https://gregory-bondarenko.ru/",
   "email": "mailto:grisha.bondarenko76@gmail.com",
   "address": {"@type": "PostalAddress", "addressLocality": "Москва", "addressCountry": "RU"},
-  "sameAs": ["https://github.com/Gregory-Bondarenko", "https://t.me/Bondarenko_Gregory", "https://t.me/logovo_data"],
+  "sameAs": ["https://orcid.org/0009-0004-7783-2136", "https://github.com/Gregory-Bondarenko", "https://t.me/Bondarenko_Gregory", "https://t.me/logovo_data"],
   "knowsAbout": ["Data Analysis", "Python", "SQL", "PySpark", "A/B Testing", "BI", "Machine Learning"],
   "knowsLanguage": ["ru", "en"]
 }
@@ -313,6 +313,13 @@ a.cert-row{color:inherit;text-decoration:none}
 .js .rv{opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1),filter .7s cubic-bezier(.22,.61,.36,1);transition-delay:calc(var(--i,0) * 80ms)}
 .js .rv.in{opacity:1;transform:none;filter:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;filter:none;transition:none}}
+.pubs-head{display:flex;align-items:baseline;justify-content:space-between;gap:0.6rem 1.4rem;flex-wrap:wrap;margin:2.6rem 0 1.1rem}
+.pubs-head .sub-title{margin:0}
+.orcid-link{display:inline-flex;align-items:baseline;gap:0.5rem;font-family:'JetBrains Mono',monospace;font-size:0.76rem;color:var(--muted);text-decoration:none;border-bottom:1px dashed var(--line-strong);padding-bottom:1px;transition:color .15s,border-color .15s}
+.orcid-link:hover{color:var(--amber);border-bottom:1px solid var(--amber)}
+.orcid-tag{color:var(--amber);letter-spacing:0.04em}
+.orcid-arr{transition:transform .15s}
+.orcid-link:hover .orcid-arr{transform:translate(2px,-2px)}
 .footer-upd{margin-top:0.35rem;font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--faint)}
 </style>
 </head>
@@ -560,7 +567,10 @@ a.cert-row{color:inherit;text-decoration:none}
     </div>
 
     <div id="pubsBlock">
-    <p class="sub-title" data-ru="Публикации" data-en="Publications">Публикации</p>
+    <div class="pubs-head">
+      <p class="sub-title" data-ru="Публикации" data-en="Publications">Публикации</p>
+      <a class="orcid-link" href="https://orcid.org/0009-0004-7783-2136" target="_blank" rel="noopener noreferrer" aria-label="ORCID 0009-0004-7783-2136"><span class="orcid-tag">ORCID</span>0009-0004-7783-2136<span class="orcid-arr" aria-hidden="true">↗</span></a>
+    </div>
     <div class="cert-wrap collapsed pubs">
       <div class="cert-list">
         <div class="cert-row pub-row" data-url="https://doi.org/10.36871/26189976.2026.10-3.003" role="button" tabindex="0">
@@ -1039,7 +1049,7 @@ window.addEventListener('load',()=>{
   });
 })();
 (function(){
-  const groups=['.hero-text > *','.hero-slider','.section-head','.panel','.sub-title','.cert-wrap','.skills-grid > div','.contact-item','.footer-cta > *'];
+  const groups=['.hero-text > *','.hero-slider','.section-head','.panel','.sub-title','.orcid-link','.cert-wrap','.skills-grid > div','.contact-item','.footer-cta > *'];
   const els=[];
   groups.forEach(sel=>{
     const found=[...document.querySelectorAll(sel)];
