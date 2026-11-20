@@ -83,6 +83,9 @@ h1{font-family:'Spectral',Georgia,serif;font-size:clamp(2.2rem,5.6vw,3.6rem);fon
   document.documentElement.lang='en';
   document.title='Page not found | Gregory Bondarenko';
   document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset.en;});
+  document.querySelector('.btn-primary').setAttribute('href','/en/');
+  document.querySelector('.btn-outline').setAttribute('href','/cv-en.pdf');
+  document.querySelector('.logo').setAttribute('href','/en/');
 })();
 </script>
 </body>

@@ -8,6 +8,9 @@
 <meta name="author" content="Григорий Бондаренко"/>
 <meta name="theme-color" content="#0c0d10"/>
 <link rel="canonical" href="https://gregory-bondarenko.ru/"/>
+<link rel="alternate" hreflang="ru" href="https://gregory-bondarenko.ru/"/>
+<link rel="alternate" hreflang="en" href="https://gregory-bondarenko.ru/en/"/>
+<link rel="alternate" hreflang="x-default" href="https://gregory-bondarenko.ru/"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230c0d10%22/%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%2262%22%20height%3D%2262%22%20rx%3D%2213%22%20fill%3D%22none%22%20stroke%3D%22%23ffb000%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2242%22%20font-family%3D%22monospace%22%20font-size%3D%2226%22%20font-weight%3D%22bold%22%20fill%3D%22%23ffb000%22%20text-anchor%3D%22middle%22%3EGB%3C/text%3E%3C/svg%3E"/>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230c0d10%22/%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%2262%22%20height%3D%2262%22%20rx%3D%2213%22%20fill%3D%22none%22%20stroke%3D%22%23ffb000%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2242%22%20font-family%3D%22monospace%22%20font-size%3D%2226%22%20font-weight%3D%22bold%22%20fill%3D%22%23ffb000%22%20text-anchor%3D%22middle%22%3EGB%3C/text%3E%3C/svg%3E"/>
@@ -19,6 +22,7 @@
 <meta property="og:url" content="https://gregory-bondarenko.ru/"/>
 <meta property="og:image" content="https://gregory-bondarenko.ru/og-preview.png"/>
 <meta property="og:locale" content="ru_RU"/>
+<meta property="og:locale:alternate" content="en_US"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://gregory-bondarenko.ru/og-preview.png"/>
 <meta name="twitter:title" content="Григорий Бондаренко — Data Analyst"/>
@@ -94,6 +98,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,8,10,0.88);backdrop-f
 .cv-btn svg{width:14px;height:14px}
 .cv-btn:hover{background:var(--amber-soft);border-color:var(--amber)}
 .lang-btn{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--muted);background:transparent;border:1px solid var(--line);padding:0.3rem 0.6rem;border-radius:6px;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.lang-btn{display:inline-block;text-decoration:none;line-height:1.4}
 .lang-btn:hover{color:var(--amber);border-color:var(--amber-line);background:var(--amber-soft)}
 .hero{padding:6.5rem 0 5rem}
 .hero-inner{display:grid;grid-template-columns:1fr 300px;gap:4.5rem;align-items:end}
@@ -352,7 +357,7 @@ a.cert-row{color:inherit;text-decoration:none}
     </nav>
     <div class="header-right">
       <a href="cv.pdf" download class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg><span data-ru="Резюме" data-en="CV">Резюме</span></a>
-      <button class="lang-btn" id="langToggle" aria-label="Switch language">EN</button>
+      <a class="lang-btn" id="langToggle" href="/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
       <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
@@ -374,7 +379,7 @@ a.cert-row{color:inherit;text-decoration:none}
       <p class="hero-eyebrow" data-ru="Москва — РАНХиГС '27" data-en="Moscow — RANEPA '27">Москва — РАНХиГС '27</p>
       <h1 data-ru="Григорий Бондаренко" data-en="Gregory Bondarenko">Григорий Бондаренко</h1>
       <p class="hero-role"><span class="sr-only">Data Analysis, Data Science, Big Data</span><span id="typeText" aria-hidden="true"></span></p>
-      <p class="hero-desc" data-ru="Учусь и развиваюсь в сфере DS, имею опыт работы и в стартапе, и в Big Tech компаниях. Люблю находить закономерности в данных и превращать их в решения" data-en="Studying and growing in DS. I have experience both at a startup and in Big Tech companies. I love finding patterns in data and turning them into solutions">Учусь и развиваюсь в сфере DS, имею опыт работы и в стартапе, и в Big Tech компаниях. Люблю находить закономерности в данных и превращать их в решения</p>
+      <p class="hero-desc" data-ru="Учусь и развиваюсь в сфере DS, имею опыт работы и в стартапе, и в Big Tech компаниях. Люблю находить закономерности в данных и превращать их в решения" data-en="I study and grow in data science, with experience at both a startup and Big Tech companies. I enjoy finding patterns in data and turning them into solutions">Учусь и развиваюсь в сфере DS, имею опыт работы и в стартапе, и в Big Tech компаниях. Люблю находить закономерности в данных и превращать их в решения</p>
       <div class="legend" aria-label="Ключевые навыки">
         <span class="legend-item">Python</span>
         <span class="legend-item">SQL</span>
@@ -414,14 +419,14 @@ a.cert-row{color:inherit;text-decoration:none}
       <article class="panel">
         <div class="panel-top">
           <span class="tag">Big Data, AdTech</span>
-          <span class="period" data-ru="03.2026 - сейчас" data-en="03.2026 - now">03.2026 - сейчас</span>
+          <span class="period" data-ru="03.2026 - сейчас" data-en="03.2026 - present">03.2026 - сейчас</span>
         </div>
         <div class="panel-body">
           <h3 data-ru="Аналитик данных, <span class='org'>МТС</span>" data-en="Data Analyst, <span class='org'>MTS</span>">Аналитик данных, <span class="org">МТС</span></h3>
-          <p data-ru="ML-команда DSP MTS Web Services" data-en="ML team, DSP at MTS Web Services">ML-команда DSP MTS Web Services</p>
+          <p data-ru="ML-команда DSP MTS Web Services" data-en="ML team, DSP unit at MTS Web Services">ML-команда DSP MTS Web Services</p>
           <div class="stack-line">Python, PySpark, SQL, A/B</div>
           <div class="more-body" id="more-mts">
-            <p data-ru="<b>Antifraud:</b> проверка гипотез и поиск признаков фрода в трафике рекламных кампаний, вывод новых правил на регламент в Антифрод и Антибот модели по итогам A/B-тестов, снижение доли GIVT и SIVT примерно на 1,5%<br><br><b>Media:</b> аналитика результатов A/B-тестов после обновления калибровок в CPC и CPM моделях, рост выкупа трафика моделью<br><br><b>Performance:</b> feature engineering для обновлённой CPA-модели, расчёт бенчмарков, исследование постклик-воронки, разработка и проверка концепта бакетирования для сегментации товаров на холодную аудиторию в динамическом ретаргетинге<br><br><b>Вне направлений:</b> выделение сегментов аудитории для BLS-исследований в связке со смежными командами, ad-hoc аналитика, поиск аномалий и причин расхождения статистики, контроль Data Quality" data-en="<b>Antifraud:</b> hypothesis testing and fraud signal detection in ad campaign traffic, rolling out new rules into Antifraud and Antibot models after A/B tests, reducing GIVT and SIVT share by about 1.5%<br><br><b>Media:</b> analysis of A/B test results after calibration updates in CPC and CPM models, improved win rate<br><br><b>Performance:</b> feature engineering for the updated CPA model, benchmark calculation, post-click funnel research, design and validation of a bucketing concept for product segmentation targeting cold audiences in dynamic retargeting<br><br><b>Cross-team:</b> building audience segments for BLS studies together with adjacent teams, ad-hoc analytics, anomaly detection and root-cause analysis of statistics discrepancies, Data Quality control"><b>Antifraud:</b> проверка гипотез и поиск признаков фрода в трафике рекламных кампаний, вывод новых правил на регламент в Антифрод и Антибот модели по итогам A/B-тестов, снижение доли GIVT и SIVT примерно на 1,5%<br><br><b>Media:</b> аналитика результатов A/B-тестов после обновления калибровок в CPC и CPM моделях, рост выкупа трафика моделью<br><br><b>Performance:</b> feature engineering для обновлённой CPA-модели, расчёт бенчмарков, исследование постклик-воронки, разработка и проверка концепта бакетирования для сегментации товаров на холодную аудиторию в динамическом ретаргетинге<br><br><b>Вне направлений:</b> выделение сегментов аудитории для BLS-исследований в связке со смежными командами, ad-hoc аналитика, поиск аномалий и причин расхождения статистики, контроль Data Quality</p>
+            <p data-ru="<b>Antifraud:</b> проверка гипотез и поиск признаков фрода в трафике рекламных кампаний, вывод новых правил на регламент в Антифрод и Антибот модели по итогам A/B-тестов, снижение доли GIVT и SIVT примерно на 1,5%<br><br><b>Media:</b> аналитика результатов A/B-тестов после обновления калибровок в CPC и CPM моделях, рост выкупа трафика моделью<br><br><b>Performance:</b> feature engineering для обновлённой CPA-модели, расчёт бенчмарков, исследование постклик-воронки, разработка и проверка концепта бакетирования для сегментации товаров на холодную аудиторию в динамическом ретаргетинге<br><br><b>Вне направлений:</b> выделение сегментов аудитории для BLS-исследований в связке со смежными командами, ad-hoc аналитика, поиск аномалий и причин расхождения статистики, контроль Data Quality" data-en="<b>Antifraud:</b> testing hypotheses and detecting fraud signals in ad campaign traffic; rolling out new rules to the Antifraud and Antibot models based on A/B test results, cutting the GIVT and SIVT share by about 1.5%<br><br><b>Media:</b> analysis of A/B test results after calibration updates in the CPC and CPM models, which increased the model's win rate<br><br><b>Performance:</b> feature engineering for the updated CPA model, benchmark calculation, post-click funnel research, design and validation of a bucketing concept for product segmentation targeting cold audiences in dynamic retargeting<br><br><b>Cross-team:</b> building audience segments for BLS studies together with adjacent teams, ad-hoc analytics, anomaly detection and root-cause analysis of statistics discrepancies, Data Quality control"><b>Antifraud:</b> проверка гипотез и поиск признаков фрода в трафике рекламных кампаний, вывод новых правил на регламент в Антифрод и Антибот модели по итогам A/B-тестов, снижение доли GIVT и SIVT примерно на 1,5%<br><br><b>Media:</b> аналитика результатов A/B-тестов после обновления калибровок в CPC и CPM моделях, рост выкупа трафика моделью<br><br><b>Performance:</b> feature engineering для обновлённой CPA-модели, расчёт бенчмарков, исследование постклик-воронки, разработка и проверка концепта бакетирования для сегментации товаров на холодную аудиторию в динамическом ретаргетинге<br><br><b>Вне направлений:</b> выделение сегментов аудитории для BLS-исследований в связке со смежными командами, ad-hoc аналитика, поиск аномалий и причин расхождения статистики, контроль Data Quality</p>
           </div>
           <div class="panel-foot">
             <button class="more-btn" data-target="more-mts"><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span><span data-ru="Подробнее" data-en="Details">Подробнее</span></button>
@@ -464,7 +469,7 @@ a.cert-row{color:inherit;text-decoration:none}
           <span class="period">2026</span>
         </div>
         <div class="panel-body">
-          <h3 data-ru="Кейс-Лаб ИТ КоР, <span class='org'>Росатом</span>" data-en="Case Lab IT KoR, <span class='org'>Rosatom</span>">Кейс-Лаб ИТ КоР, <span class="org">Росатом</span></h3>
+          <h3 data-ru="Кейс-Лаб ИТ КоР, <span class='org'>Росатом</span>" data-en="IT Case Lab, <span class='org'>Rosatom</span>">Кейс-Лаб ИТ КоР, <span class="org">Росатом</span></h3>
           <p data-ru="Практические кейсы по созданию и обучению ML-моделей на PyTorch. Подготовка данных, ускорение вычислений, малоранговые методы и свёрточные сети для задач компьютерного зрения" data-en="Hands-on cases on building and training ML models in PyTorch. Data preparation, speeding up computation, low-rank methods and convolutional networks for computer vision tasks">Практические кейсы по созданию и обучению ML-моделей на PyTorch. Подготовка данных, ускорение вычислений, малоранговые методы и свёрточные сети для задач компьютерного зрения</p>
           <div class="panel-bottom">
             <div class="panel-foot foot-row">
@@ -481,7 +486,7 @@ a.cert-row{color:inherit;text-decoration:none}
         </div>
         <div class="panel-body">
           <h3 data-ru="Школа аналитики DWH, <span class='org'>T1</span>" data-en="DWH Analytics School, <span class='org'>T1</span>">Школа аналитики DWH, <span class="org">T1</span></h3>
-          <p data-ru="Практическая школа по направлению Data Warehouse. Сбор требований, проектирование слоёв хранилища, оптимизация SQL-запросов, проектирование ETL-процессов" data-en="Practical school in Data Warehouse. Requirements gathering, warehouse layer design, SQL query optimization, ETL process design">Практическая школа по направлению Data Warehouse. Сбор требований, проектирование слоёв хранилища, оптимизация SQL-запросов, проектирование ETL-процессов</p>
+          <p data-ru="Практическая школа по направлению Data Warehouse. Сбор требований, проектирование слоёв хранилища, оптимизация SQL-запросов, проектирование ETL-процессов" data-en="Hands-on school on data warehousing. Requirements gathering, warehouse layer design, SQL query optimization, ETL process design">Практическая школа по направлению Data Warehouse. Сбор требований, проектирование слоёв хранилища, оптимизация SQL-запросов, проектирование ETL-процессов</p>
           <div class="panel-bottom">
             <div class="panel-foot">
               <button class="cert-btn" onclick="openCert('t1')"><span data-ru="Сертификат" data-en="Certificate">Сертификат</span></button>
@@ -576,7 +581,7 @@ a.cert-row{color:inherit;text-decoration:none}
         <div class="cert-row pub-row" data-url="https://doi.org/10.36871/26189976.2026.10-3.003" role="button" tabindex="0">
           <span class="yr">2026</span>
           <span class="txt">
-            <span class="name">Моделирование пользовательского поведения в мобильных приложениях средствами машинного обучения<span class="badge">ВАК</span></span>
+            <span class="name"><span data-ru="Моделирование пользовательского поведения в мобильных приложениях средствами машинного обучения" data-en="Modeling user behavior in mobile applications using machine learning">Моделирование пользовательского поведения в мобильных приложениях средствами машинного обучения</span><span class="badge" data-ru="ВАК" data-en="VAK">ВАК</span></span>
             <span class="issuer" data-ru="Мягкие измерения и вычисления, 2026, №&nbsp;10-3" data-en="Soft Measurements and Computing, 2026, no.&nbsp;10-3">Мягкие измерения и вычисления, 2026, №&nbsp;10-3</span>
           </span>
           <span class="view" aria-hidden="true"></span>
@@ -667,7 +672,7 @@ a.cert-row{color:inherit;text-decoration:none}
         <div class="pills">
           <span class="pill" data-ru="Математическая статистика" data-en="Statistics">Математическая статистика</span>
           <span class="pill" data-ru="Теория вероятностей" data-en="Probability theory">Теория вероятностей</span>
-          <span class="pill" data-ru="A/B-тесты" data-en="A/B tests">A/B-тесты</span>
+          <span class="pill" data-ru="A/B-тесты" data-en="A/B testing">A/B-тесты</span>
           <span class="pill">Git</span>
           <span class="pill" data-ru="Google Sheets / Excel" data-en="Google Sheets / Excel">Google Sheets / Excel</span>
         </div>
@@ -676,8 +681,8 @@ a.cert-row{color:inherit;text-decoration:none}
         <div class="skill-group-title" data-ru="Языки" data-en="Languages">Языки</div>
         <div class="pills">
           <span class="pill" data-ru="Русский — родной" data-en="Russian — native">Русский — родной</span>
-          <span class="pill">English — B1–B2</span>
-          <span class="pill">Türkçe — A1</span>
+          <span class="pill" data-ru="English — B1–B2" data-en="English — B1–B2">English — B1–B2</span>
+          <span class="pill" data-ru="Türkçe — A1" data-en="Turkish — A1">Türkçe — A1</span>
         </div>
       </div>
     </div>
@@ -700,7 +705,7 @@ a.cert-row{color:inherit;text-decoration:none}
       </a>
       <a href="https://t.me/logovo_data" class="contact-item" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-5 3.5 3.5L20 7"/></svg>
-        <div><div class="contact-label" data-ru="TG-канал" data-en="TG channel">TG-канал</div><div class="contact-value">@logovo_data</div></div>
+        <div><div class="contact-label" data-ru="TG-канал" data-en="Telegram channel">TG-канал</div><div class="contact-value">@logovo_data</div></div>
       </a>
       <a href="https://github.com/Gregory-Bondarenko" class="contact-item" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6 0C6.7 2.8 5.6 3.1 5.6 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
@@ -715,7 +720,7 @@ a.cert-row{color:inherit;text-decoration:none}
 <footer>
   <div class="wrap footer-cta">
     <div class="footer-cta-text">
-      <div class="footer-cta-title" data-ru="Резюме одним файлом" data-en="Resume in one file">Резюме одним файлом</div>
+      <div class="footer-cta-title" data-ru="Резюме одним файлом" data-en="Full resume in one file">Резюме одним файлом</div>
       <div class="footer-upd" data-ru="Обновлено: ноябрь 2026" data-en="Updated: November 2026">Обновлено: ноябрь 2026</div>
     </div>
     <a href="cv.pdf" download class="btn btn-primary footer-dl">
@@ -726,17 +731,17 @@ a.cert-row{color:inherit;text-decoration:none}
 
 <script>
 const certImgs={
-  'changellenge':'img/cert-changellenge.jpg',
-  't1':'img/cert-t1.jpg',
-  'tomoru':'img/cert-tomoru.jpg',
-  'tgu':'img/cert-tgu.png',
-  'vk':'img/cert-vk.jpg',
-  'gradient':'img/cert-gradient.jpg',
-  'alfa':'img/cert-alfa.jpg',
-  'mlspec':'img/cert-mlspec.jpg',
-  'rosatom':'img/cert-rosatom.jpg',
-  'kvant':'img/cert-kvant.jpg',
-  'neftekod':'img/cert-neftekod.jpg'
+  'changellenge':'img/cert-changellenge.webp',
+  't1':'img/cert-t1.webp',
+  'tomoru':'img/cert-tomoru.webp',
+  'tgu':'img/cert-tgu.webp',
+  'vk':'img/cert-vk.webp',
+  'gradient':'img/cert-gradient.webp',
+  'alfa':'img/cert-alfa.webp',
+  'mlspec':'img/cert-mlspec.webp',
+  'rosatom':'img/cert-rosatom.webp',
+  'kvant':'img/cert-kvant.webp',
+  'neftekod':'img/cert-neftekod.webp'
 };
 const certModal=document.getElementById('certModal');
 const modalImg=document.getElementById('modalImg');
@@ -920,35 +925,9 @@ function equalizePanels(){
 window.addEventListener('load',equalizePanels);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(equalizePanels);
 let eqT;window.addEventListener('resize',()=>{clearTimeout(eqT);eqT=setTimeout(equalizePanels,150);});
-const docMeta={
-  ru:{
-    title:'Григорий Бондаренко — Data Analyst | РАНХиГС | IT',
-    desc:'Григорий Бондаренко — аналитик данных в МТС Web Services, Москва. Python, SQL, PySpark, BI, A/B-тесты. Студент РАНХиГС (Прикладная информатика, Data Science), финалист Changellenge Cup IT'
-  },
-  en:{
-    title:'Gregory Bondarenko — Data Analyst | RANEPA | IT',
-    desc:'Gregory Bondarenko — data analyst at MTS Web Services, Moscow. Python, SQL, PySpark, BI, A/B testing. RANEPA student (Applied Informatics, Data Science), Changellenge Cup IT finalist'
-  }
-};
-const metaDescEl=document.querySelector('meta[name="description"]');
-let lang=localStorage.getItem('lang')||'ru';
-const langBtn=document.getElementById('langToggle');
-function applyLang(){
-  document.documentElement.lang=lang;
-  document.querySelectorAll('[data-ru]').forEach(el=>{el.innerHTML=el.dataset[lang];});
-  document.title=docMeta[lang].title;
-  metaDescEl.setAttribute('content',docMeta[lang].desc);
-  langBtn.textContent=lang==='ru'?'EN':'RU';
-  document.querySelectorAll('.cert-more').forEach(b=>{const w=b.previousElementSibling;if(w&&w.classList.contains('cert-wrap')&&!w.classList.contains('collapsed'))b.textContent=lang==='en'?'Show less':'Свернуть';});
-  startTyping();
-  equalizePanels();
-}
-langBtn.addEventListener('click',()=>{
-  lang=lang==='ru'?'en':'ru';
-  localStorage.setItem('lang',lang);
-  applyLang();
-});
-if(lang!=='ru')applyLang();else startTyping();
+const lang=document.documentElement.lang==='en'?'en':'ru';
+try{localStorage.setItem('lang',lang);}catch(e){}
+startTyping();
 (function(){
   const svg=document.querySelector('.chart-bg');
   if(!svg)return;
@@ -998,11 +977,26 @@ if(lang!=='ru')applyLang();else startTyping();
   window.addEventListener('load',()=>{recalcMax();kick();});
   calcTarget(); cur=target; render();
 })();
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    Object.values(certImgs).forEach(src=>{const i=new Image(); i.src=src;});
-  },1200);
-});
+(function(){
+  const warmed=new Set();
+  const warm=key=>{
+    if(warmed.has(key)||!certImgs[key])return;
+    warmed.add(key);
+    const i=new Image();i.decoding='async';i.src=certImgs[key];
+  };
+  const keyOf=el=>{const m=(el.getAttribute('onclick')||'').match(/openCert\('([^']+)'\)/);return m&&m[1];};
+  const triggers=[...document.querySelectorAll('[onclick^="openCert("]')];
+  triggers.forEach(el=>{
+    const k=keyOf(el);
+    ['pointerenter','focus','touchstart'].forEach(ev=>el.addEventListener(ev,()=>warm(k),{once:true,passive:true}));
+  });
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{if(en.isIntersecting){io.unobserve(en.target);warm(keyOf(en.target));}});
+    },{rootMargin:'300px 0px'});
+    triggers.forEach(el=>io.observe(el));
+  }
+})();
 (function(){
   const LIMIT=4;
   document.querySelectorAll('.cert-wrap').forEach(wrap=>{
@@ -1034,7 +1028,7 @@ window.addEventListener('load',()=>{
       if(isOpen){
         list.style.maxHeight=list.scrollHeight+'px';
         requestAnimationFrame(()=>{wrap.classList.add('collapsed');list.style.maxHeight=collapsedH()+'px';markPeek();});
-        btn.textContent=btn.dataset[lang]||'Показать ещё';
+        btn.textContent=lang==='en'?'Show more':'Показать ещё';
       }else{
         wrap.classList.remove('collapsed');
         list.style.maxHeight=list.scrollHeight+'px';
